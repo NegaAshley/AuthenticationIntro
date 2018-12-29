@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
-
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -60,9 +60,22 @@ app.post("/register", function(req, res){
     });
 });
 
+//Login Routes
+
 //Show login form
 app.get("/login", function(req, res){
     res.render("login");
+});
+
+//Handle user login
+//Add Passport middleware to run before final route callback
+//This authenticates credentials in request
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/secret",
+    failureRedirect: "/login"
+}),
+function(req, res){
+    
 });
 
 app.listen(process.env.PORT, process.env.IP);
