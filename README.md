@@ -12,3 +12,7 @@
 * Install needed packages
 * Add root route and template
 * Add secret route and template
+
+# Part 2
+* Create User model
+* Configure passport
