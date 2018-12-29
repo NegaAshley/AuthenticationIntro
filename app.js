@@ -9,6 +9,8 @@ var express                     = require("express"),
 
 mongoose.connect("mongodb://localhost/auth_demo_app");
 app.set("view engine", "ejs");
+app.use(passport.initalize());
+app.use(passport.session());
 
 app.get("/", function(req, res){
     res.render("home");
