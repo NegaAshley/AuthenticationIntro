@@ -7,7 +7,11 @@ var express                 = require("express"),
     passportLocalMongoose   = require("passport-local-mongoose"),
     User                    = require("./models/user");
 
-mongoose.connect("mongodb://localhost/auth_demo_app");
+//Local MongoDB
+//mongoose.connect("mongodb://localhost/auth_demo_app");
+
+//mLab MongoDB
+mongoose.connect("mongodb://<ashleymxu>:<meepois#1>@ds145304.mlab.com:45304/authdemo");
 
 app.use(require("express-session")({
     secret: "Meepo is the best and cutest cat in the world",
