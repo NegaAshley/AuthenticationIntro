@@ -24,3 +24,7 @@
 # Part 4
 * Add Login routes
 * Add Login form
+
+# Part 5
+* Add Logout route
+* Add isLoggedIn middleware
