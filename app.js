@@ -78,4 +78,9 @@ function(req, res){
     
 });
 
+//Logout Routes
+app.get("/logout", function(req, res){
+    res.send("Logged out!");
+});
+
 app.listen(process.env.PORT, process.env.IP);
