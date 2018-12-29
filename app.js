@@ -31,7 +31,9 @@ app.get("/", function(req, res){
     res.render("home");
 });
 
-app.get("/secret", function(req, res){
+//Add isLoggedIn middleware to see if user is logged in,
+//which redirects user to login page
+app.get("/secret", isLoggedIn, function(req, res){
     res.render("secret");
 });
 
@@ -86,5 +88,13 @@ app.get("/logout", function(req, res){
     req.logout();
     res.redirect("/");
 });
+
+//Uses Passport isAuthenticated to see if user is logged in
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 app.listen(process.env.PORT, process.env.IP);
