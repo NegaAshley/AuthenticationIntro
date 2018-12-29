@@ -79,8 +79,12 @@ function(req, res){
 });
 
 //Logout Routes
+
+//Show logout form
 app.get("/logout", function(req, res){
-    res.send("Logged out!");
+    //Logs user out - Passport destroys user data in session
+    req.logout();
+    res.redirect("/");
 });
 
 app.listen(process.env.PORT, process.env.IP);
