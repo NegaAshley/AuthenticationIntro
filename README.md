@@ -20,3 +20,7 @@
 # Part 3
 * Add Register routes
 * Add Register form
+
+# Part 4
+* Add Login routes
+* Add Login form
