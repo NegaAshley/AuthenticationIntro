@@ -16,3 +16,7 @@
 # Part 2
 * Create User model
 * Configure passport
+
+# Part 3
+* Add Register routes
+* Add Register form
